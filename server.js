@@ -95,7 +95,7 @@ app.get("/api/people/:id", function(req, res){
   }); 
 });
 
-app.delete("/api/people/:id", authorize, function(req, res){
+app.delete("/api/people/:id/:token", authorize, function(req, res){
   Person.remove({_id: req.params.id}).exec(function(){
     res.send({deleted: true});
   });

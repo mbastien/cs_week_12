@@ -88,7 +88,7 @@ app.factory("PeopleSvc", function($q, $http, AuthSvc ){
     user: AuthSvc.user,
     deletePerson: function(person){
       var dfd = $q.defer();
-      $http.delete("/api/people/" + person._id).then(
+      $http.delete("/api/people/" + person._id + "/" + AuthSvc.getToken()).then(
         function(result){
           dfd.resolve(result.data); 
         },
